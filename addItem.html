@@ -63,24 +63,62 @@
     </nav>
     <form class="container-add" id="form">
       <div class="mb-3">
-        <label for="exampleInputId" class="form-label">Product ID</label>
+        <label for="exampleInputId" class="form-label">Serial No</label>
         <input
           type="number"
           name="id"
           class="form-control"
           id="todoId"
           required
+          placeholder="Enter Id"
         />
+        <span class="formError"></span>
       </div>
       <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Work</label>
+        <label for="exampleInputEmail1" class="form-label">Task Name</label>
         <input
           type="text"
           name="name"
           class="form-control"
           id="todoInput"
+          placeholder="Enter Work Name"
           required
         />
+        <span class="formError"> </span>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputDate" class="form-label">Date</label>
+        <input
+          type="date"
+          name="date"
+          class="form-control"
+          id="todoDate"
+          placeholder="Select Date"
+          required
+        />
+        <span class="formError"> </span>
+      </div>
+      <div class="input-group mb-3">
+        <label class="input-group-text" for="inputShiftSelect">Shift</label>
+        <select class="form-select" id="inputShiftSelect" required>
+          <!-- <option selected>Choose...</option> -->
+          <option value="morning">Morning</option>
+          <option value="afternoon">Afternoon</option>
+          <option value="evening">Evening</option>
+          <option value="night">Night</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputTime" class="form-label">Time Duration</label>
+        <input
+          type="number"
+          name="time"
+          class="form-control"
+          id="todoTime"
+          placeholder="Enter Needed Time Duration In Hour"
+          required
+        />
+        <span class="formError"> </span>
       </div>
       <div class="input-group mb-3">
         <label class="input-group-text" for="inputGroupSelect01"
@@ -94,9 +132,55 @@
         </select>
       </div>
 
-      <button type="submit" class="btn btn-primary btn-submit" id="entry">
+      <!-- warning-message -->
+      <button
+        data-bs-toggle="modal"
+        data-bs-target="#exampleModal"
+        type="button"
+        class="btn btn-primary btn-submit"
+      >
         Submit
       </button>
+
+      <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">New ToDo</h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">Are you confirm to add your todo ?</div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+              <button
+                type="submit"
+                class="btn btn-primary"
+                data-bs-dismiss="modal"
+                id="entry"
+              >
+                Save Todo
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </form>
 
     <script src="addItem.js"></script>
